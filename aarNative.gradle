@@ -1,0 +1,27 @@
+def aarFolderName ='libs'
+
+repositories {
+
+    flatDir {
+        dirs aarFolderName// aar目录
+    }
+}
+
+dependencies {
+
+    def aarNativeBat= {
+
+        //查找目录下所有.aar结尾的文件
+        fileTree(dir: aarFolderName,include:'*.aar').each { File file ->
+            //获取文件名
+            def name = file.name.lastIndexOf('.').with {
+                it != -1 ? file.name[0..<it] : file.name }
+
+            compile(name: name,ext:'aar')
+        }
+
+    }
+
+    //执行脚本
+    aarNativeBat()
+}

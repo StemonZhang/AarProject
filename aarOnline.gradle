@@ -1,0 +1,25 @@
+ext {
+
+    dependVersion = [
+
+            //引用的SDK信息，需要更新时，直接修改此处就可以
+            androidSupportSdkVersion:'27.1.1'
+    ]
+
+    //基础库
+    supportLibrary = [
+            appcompat: "com.android.support:appcompat-v7:$dependVersion.androidSupportSdkVersion",
+    ]
+
+    //第三方库
+    thirdSupportLibrary = [
+            constraint: 'com.android.support.constraint:constraint-layout:1.1.3',
+            junit: 'junit:junit:4.12',
+            runner: 'com.android.support.test:runner:1.0.2',
+            espresso: 'com.android.support.test.espresso:espresso-core:3.0.2'
+    ]
+
+    supportLibs = supportLibrary.values()
+
+
+}
